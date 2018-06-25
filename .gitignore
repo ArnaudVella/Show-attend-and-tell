@@ -1,0 +1,4 @@
+*.pyc
+model/
+data/
+static/fig.png

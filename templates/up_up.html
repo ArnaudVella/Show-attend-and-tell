@@ -1,0 +1,14 @@
+{% extends 'up_squelette.html' %}
+
+{% block title %}Show attend and tell{% endblock %}
+
+
+{% block main %}
+<h1>Choose an image to upload:</h1>
+<h2>(jpg, jpeg or png format)</h2>
+<form action="" method="post" enctype="multipart/form-data">
+    <input id="fic" type="file" name="fic" />
+    <input id="btsub" type="submit" value="Upload" />
+</form>
+<img src="/static/fig.png" alt="votre image">
+{% endblock %}
