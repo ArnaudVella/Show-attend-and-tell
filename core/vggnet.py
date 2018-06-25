@@ -16,7 +16,7 @@ class Vgg19(object):
         self.images = tf.placeholder(tf.float32, [None, 224, 224, 3], 'images')
 
     def build_params(self):
-        model = scipy.io.loadmat('/media/vella/OS/Projet/show-attend-and-tell-tensorflow/data/imagenet-vgg-verydeep-19.mat')
+        model = scipy.io.loadmat('data/imagenet-vgg-verydeep-19.mat')
         layers = model['layers'][0]
         self.params = {}
         with tf.variable_scope('encoder'):
