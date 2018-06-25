@@ -184,7 +184,6 @@ class CaptionGenerator(object):
         features = self.features
 
         # batch normalize feature vectors
-        #del conv_featuresbatch_norm/beta
         features = self._batch_norm(features, mode='test', name='conv_features')
 
         c, h = self._get_initial_lstm(features=features)

@@ -12,7 +12,7 @@ from core.vggnet import Vgg19
 from utils import *
 from core import utils
 
-#figure_savepath = os.path.join(os.path.dirname(__file__), "caption_figure_images/")
+
 
 
 class CaptioningSolver(object):
@@ -98,25 +98,26 @@ class CaptioningSolver(object):
 			alps, bts, sam_cap = sess.run([alphas, betas, sampled_captions], feed_dict)  # (N, max_len, L), (N, max_len)
 			decoded = decode_captions(sam_cap, self.model.idx_to_word)
 			if attention_visualization:
-				for n in range(1):
-					print "Sampled Caption: %s" %decoded[n]
-					img = ndimage.imread(data['file_names'])
-					plt.subplot(4, 5, 1)
+				n=0
+				plt.clf()
+				print "Sampled Caption: %s" %decoded[n]
+				img = ndimage.imread(data['file_names'])
+				plt.subplot(4, 5, 1)
+				plt.imshow(img)
+				plt.axis('off')
+				
+				words = decoded[n].split(" ")
+				for t in range(len(words)):
+					if t > 18:
+						break
+					plt.subplot(4, 5, t+2)
+					plt.text(0, 1, '%s(%.2f)'%(words[t], bts[n,t]) , color='black', backgroundcolor='white', fontsize=8)
 					plt.imshow(img)
+					alp_curr = alps[n,t,:].reshape(14,14)
+					alp_img = skimage.transform.pyramid_expand(alp_curr, upscale=16, sigma=20)
+					plt.imshow(alp_img, alpha=0.85)
 					plt.axis('off')
-					
-					words = decoded[n].split(" ")
-					for t in range(len(words)):
-						if t > 18:
-							break
-						plt.subplot(4, 5, t+2)
-						plt.text(0, 1, '%s(%.2f)'%(words[t], bts[n,t]) , color='black', backgroundcolor='white', fontsize=8)
-						plt.imshow(img)
-						alp_curr = alps[n,t,:].reshape(14,14)
-						alp_img = skimage.transform.pyramid_expand(alp_curr, upscale=16, sigma=20)
-						plt.imshow(alp_img, alpha=0.85)
-						plt.axis('off')
-						plt.savefig('./static/fig.png')
+				plt.savefig('./static/fig.png')
                    
                    
 
