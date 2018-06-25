@@ -39,8 +39,3 @@ Vous pouvez à présent lancer le programme:
 $ python up.py
 ```
 et entrer l'adresse localhost:5000/up dans votre navigateur internet.
-
-
-remarque:
-Pour l'instant la page est à unage unique et l'application se plante lorsque vous re-uploadez une nouvelle image. pour éviter vous devez le relancer entre chaque nouvelle image. 
-
