@@ -20,7 +20,7 @@ Vous pouvez néanmoins l'entrainer sur votre propre machine en suivant les instr
 
 Remarque:
 l'entrainement du modèle nécessite au moins 47gb de mémoire ram, ou à défaut de mémoire virtuelle. Linux permet de gérer facilement la mémoire swap si nécessaire.
-L'entrainement prend plusieurs juours pour arriver à terme, en fonction de votre machine et de l'utilisation ou pas de Tensorflow-GPU.
+L'entrainement prend plusieurs jours pour arriver à terme, en fonction de votre machine et de l'utilisation ou pas de Tensorflow-GPU.
 Une fois l'entrainement terminé, vous pouvez ne conserver que les dossiers data et model.
 
 Vous pouvez à présent cloner ce repo:
